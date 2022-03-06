@@ -1,13 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-entrypoint
-  namespace: default
+  name: hello-server
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: hello-server
 spec:
   type: NodePort
   selector:
-    hello: web
+    app: hello-server
   ports:
   - port: 5001
     targetPort: 5001
-    nodePort: 30001
+    nodePort: {{ .Values.service.port }}

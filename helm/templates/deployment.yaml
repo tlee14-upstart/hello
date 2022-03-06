@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello
-  namespace: default
+  namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      hello: web
+      app: hello
   template:
     metadata:
       labels:
-        hello: web
+        app: hello
     spec:
       containers:
-      - name: {{ .Chart.Name }}
+      - name: hello
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: Never
+        imagePullPolicy: Always

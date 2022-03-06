@@ -1,3 +1,10 @@
+namespace: default
+
+
 image:
   repository: 523650524086.dkr.ecr.us-east-1.amazonaws.com/hackweek-metaflow-images
   tag: hello_v2
+
+
+service:
+  port: 30001
