@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Test environment
+name: default
+version: "1.0.0"
