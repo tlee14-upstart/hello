@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      hello: web
+  template:
+    metadata:
+      labels:
+        hello: web
+    spec:
+      containers:
+      - name: hello
+        image: 523650524086.dkr.ecr.us-east-1.amazonaws.com/hackweek-metaflow-images:hello
+        imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-entrypoint
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    hello: web
+  ports:
+  - port: 5001
+    targetPort: 5001
+    nodePort: 30001
