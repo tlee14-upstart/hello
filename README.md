@@ -5,5 +5,5 @@
 docker build --rm --tag hello:v1 .
 
 # run
-docker run --rm --name test --detach --publish 5001:5001 hello:v1
+docker run --rm --name test --detach --publish 5000:5000 hello:v1
 ```

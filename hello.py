@@ -24,13 +24,13 @@ def predict():
     if data is None:
         return "Need to add json content type", 400
 
-    user_id = data.get("user_id", None)
+    user = data.get("user", None)
     feature = data.get("feature", 0)
-    if user_id is None:
-        return "'user_id' missing", 400
+    if user is None:
+        return "'user' missing", 400
 
     if feature is None:
         return "'feature' missing", 400
 
 
-    return jsonify({"id": user_id, "predict": feature*13})
+    return jsonify({"id": user, "predict": feature*13})
